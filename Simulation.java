@@ -14,7 +14,44 @@ public class Simulation {
 					continue;
 				}
 				if (input == 2) {
-
+					User loginUser;
+					if (loginUser instanceof Buyer) {
+						System.out.println("What do you want to do?\n 1- Buy a Product\n 2- Log out\n");
+						int buyIn = scanner.nextInt();
+						if (buyIn == 1) {
+							
+						} 
+						else { continue; }
+					}
+					else if (loginUser instanceof StoreOwner) {
+						System.out.println("What do you want to do?\n 1- Add a product.\n 2- Add a Store\n");
+						int StoreIn=scanner.nextInt();
+						if(StoreIn == 1) {
+							
+							storesList.get
+						}
+						else if (StoreIn == 2) {
+							System.out.println("Enter the name of the store.\n");
+							String StoreName=scanner.nextLine();
+							System.out.println("Enter the location of the store.\n");
+							String StoreLoc=scanner.nextLine();
+							System.out.println("Enter the type of the store.\n");
+							String StoreType=scanner.nextLine();
+							storesList.add(new Store( StoreName,StoreLoc,StoreType,loginUser));
+						}
+						
+					}
+					else {
+						System.out.println("What do you want to do?\n 1- Add a product to the website from the StoreOwners.\n 2- Log out\n");
+						int AdminIn=scanner.nextInt();
+						
+						productsList.add(new Product("Apples","Fruits",4,6));
+						
+					}
+				}
+				else { break; }
+			}
+	}
 				}
 			}
 	}

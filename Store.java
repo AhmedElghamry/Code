@@ -12,6 +12,10 @@ public class Store {
 		this.storeOwner = storeOwner;
 		this.products = new ProductsList();
 	}
+	public void addproduct(ProductList product) {
+		products.add(product);
+	}
+	
 	
 	public String getName() {
 		return name;
