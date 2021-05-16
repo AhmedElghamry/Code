@@ -46,5 +46,5 @@ public class Store {
 	}
 	public void setProductsList(){
 		this.ProductsList=products;
-	}
+
 }

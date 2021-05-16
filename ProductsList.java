@@ -11,7 +11,7 @@ public class ProductsList {
 		Products.add(product);
 	}
 	
-	public Game getProduct(String name) {
+	public Product getProduct(String name) {
 		for (Iterator i = Products.iterator(); i.hasNext(); ) {
 			Product product = (Product) i.next();
 			if (product.getName().equals(name)) {
@@ -21,12 +21,12 @@ public class ProductsList {
 		return null;
 	}
 	
-	/*public List search(String ruleName, String rule) {
-		List matchingGames = new LinkedList();
-		for (Iterator i = Games.iterator(); i.hasNext(); ) {
-			Game game = (Game) i.next();
-			if (game.getRules().matches(ruleName, rule))
-				matchingGames.add(game);
+	/*public ProductsList search(String name, String rule) {
+		ProductsList matchingProducts = new ProductsList();
+		for (Iterator i = Products.iterator(); i.hasNext(); ) {
+			Product product = (Product) i.next();
+			if (product.getName().matches(ruleName, rule))
+				matchingProducts.add(product);
 		}
 		return matchingGames;
 	}*/
