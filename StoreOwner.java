@@ -11,4 +11,5 @@ public class StoreOwner implements User {
 	public void addStore() {
 
 	}
+	
 }
