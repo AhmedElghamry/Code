@@ -35,4 +35,15 @@ public class User {
 	public void setEmail(String email) {
 		this.email=email;
 	}
+
+	protected Product selectProduct(ProductsList products) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("\nWrite the name of your desired product: ");
+		String name = sc.nextLine();
+		while (products.getProduct(name) == null ) {
+			System.out.println("\nThere is no Product with that name. Please, type again the name of your desired product: ");
+			name = sc.nextLine();
+		}
+		return products.getProduct(name);
+	}
 }

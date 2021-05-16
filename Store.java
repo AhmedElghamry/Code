@@ -12,7 +12,7 @@ public class Store {
 		this.storeOwner = storeOwner;
 		this.products = new ProductsList();
 	}
-	public void addproduct(ProductList product) {
+	public void addproduct(Product product) {
 		products.add(product);
 	}
 	

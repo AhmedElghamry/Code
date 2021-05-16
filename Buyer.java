@@ -16,7 +16,7 @@ public class Buyer implements User {
 		Confirm();
 	}
 
-	private Product selectProduct(ProductsList products) {
+	/*private Product selectProduct(ProductsList products) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\nWrite the name of your desired product: ");
 		String name = sc.nextLine();
@@ -25,7 +25,7 @@ public class Buyer implements User {
 			name = sc.nextLine();
 		}
 		return products.getProduct(name);
-	}
+	}*/
 
 	private int selectQuantity() {
 		Scanner sc = new Scanner(System.in);

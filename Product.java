@@ -16,8 +16,10 @@ public class Product {
 		this.price = null;
 	}
 
-	public void addToStore(Store store) {
+	public void addToStore(Store store, int quantity, double price) {
 		this.store = store;
+		this.quantity = quantity;
+		this.price = price;
 	}
 	
 	

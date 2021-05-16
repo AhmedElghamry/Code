@@ -11,11 +11,11 @@ public class Simulation {
 		while(input != 0) {
 			if (input == 1) {
 				register(usersList);
-				continue;
 			}
 
 			if (input == 2) {
 				User loginUser = Login(usersList);
+				if (loginUser == null) { continue; }
 				if (loginUser instanceof Buyer) {
 					System.out.println("What do you want to do?\n 1- Buy a Product\n 2- Log out\n");
 					int buyIn = sc.nextInt();
@@ -24,29 +24,32 @@ public class Simulation {
 						System.out.println("What do you want to do?\n 1- Buy a Product\n 2- Log out\n");
 						buyIn = sc.nextInt();
 					} 						
-					continue;
 				}
 				else if (loginUser instanceof StoreOwner) {
-					System.out.println("What do you want to do?\n 1- Add a product.\n 2- Add a Store\n");
-					int StoreIn=scanner.nextInt();
-					if (StoreIn == 1) { storesList.get }
-					else if (StoreIn == 2) {
-						System.out.println("Enter the name of the store.\n");
-						String StoreName=scanner.nextLine();
-						System.out.println("Enter the location of the store.\n");
-						String StoreLoc=scanner.nextLine();
-						System.out.println("Enter the type of the store.\n");
-						String StoreType=scanner.nextLine();
-						storesList.add(new Store( StoreName,StoreLoc,StoreType,loginUser));
+					System.out.println("What do you want to do?\n 1- Add a product.\n 2- Add a Store\n 3- Log Out\n");
+					int storeIn = sc.nextInt();
+					while (StoreIn == 1 || StoreIn == 2) {
+						if (StoreIn == 1) { loginUser.addProduct(productsList);	}
+						else if (StoreIn == 2) {
+							Store store = loginUser.addStore();
+							storesList.add(store);
+						}
+						System.out.println("What do you want to do?\n 1- Add a product.\n 2- Add a Store\n 3- Log Out\n");
+						storeIn = sc.nextInt();		
+					}			
+				}
+
+				else {
+					System.out.println("What do you want to do?\n 1- Add a product to the System.\n 2- Log out\n");
+					int adminIn = scanner.nextInt();
+					while (adminIn == 1) { 		
+						adminAddsProduct(productsList);
+						System.out.println("What do you want to do?\n 1- Add a product to the System.\n 2- Log out\n");
+						adminIn = scanner.nextInt();				
 					}
 				}
 			}
-			
-			else {
-				System.out.println("What do you want to do?\n 1- Add a product to the website from the StoreOwners.\n 2- Log out\n");
-				int AdminIn=scanner.nextInt();		
-				productsList.add(new Product("Apples","Fruits",4,6));
-			}
+			input = takeInput();
 		}
 	}
 
@@ -61,11 +64,25 @@ public class Simulation {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("What do you want to do?\n 1- Register\n 2- Login\n 3- Exit\n");
 		input = scanner.nextInt();
-	/*	if (sc.nextInt() != 1 && sc.nextInt() != 2 && sc.nextInt() != 3)
-
-		else*/
-		return input;
+		if (input != 1 && input != 2)
+			return 0;
+		else
+			return input;
 	}
+
+	private static void adminAddsProduct(ProductsList products) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("\nEnter the name of the product: ");
+		String name = scanner.nextLine();
+		System.out.println("\nEnter the category of the product: ");
+		String category = scanner.nextLine();
+		System.out.println("\nEnter the minimum price of the product: ");
+		double minPrice = scanner.nextDouble();
+		System.out.println("\nEnter the maximum price of the product: ");
+		double maxPrice = scanner.nextDouble();
+		products.add(new Product(name,category,minPrice,maxPrice));
+	}
+
 
 	private static void register(LinkedList usersList) {
 		Scanner sc = new Scanner(System.in);
@@ -96,5 +113,6 @@ public class Simulation {
 		System.out.println("\nNo such user, Are you registered? y/n");
 		if (sc.nextLine() == "n") { flag = false; }
 		}
+		return null;
 	}
 }
