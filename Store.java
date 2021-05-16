@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Store {
 	private String name, location, type;
-	private List<Product> products;
+	private ProductsList products;
 	private StoreOwner storeOwner;
 
 	public Store(String name, String location, String type, StoreOwner storeOwner) {
@@ -10,6 +10,11 @@ public class Store {
 		this.location = location;
 		this.type = type;
 		this.storeOwner = storeOwner;
-		this.products = new LinkedList<Product>();
+		this.products = new ProductsList();
+	}
+
+	public addProduct()
+	{
+
 	}
 }

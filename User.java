@@ -9,11 +9,11 @@ public class User {
 		this.email = email;
 	}
 
-	public boolean register(List registerdUsers) {
+	public boolean register(LinkedList registerdUsers) {
 		return !registerdUsers.contains(this);
 	}
 
-	public boolean login(List registerdUsers) {
+	public boolean login(LinkedList registerdUsers) {
 		return registerdUsers.contains(this);
 	}
 }
