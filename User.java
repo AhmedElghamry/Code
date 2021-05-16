@@ -16,6 +16,7 @@ public class User {
 	public boolean login(List registerdUsers) {
 		return registerdUsers.contains(this);
 	}
+	
 	public String getName() {
 		return name;
 	}

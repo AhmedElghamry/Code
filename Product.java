@@ -11,6 +11,8 @@ public class Product {
 		this.priceMin = priceMin;
 		this.priceMax = priceMax;
 		this.store = null;
+		/*this.quantity = null;
+		this.price = null;*/
 	}
 
 	public void addToStore(Store store) {
