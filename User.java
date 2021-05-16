@@ -8,12 +8,4 @@ public class User {
 		this.password = password;
 		this.email = email;
 	}
-
-	public boolean register(LinkedList registerdUsers) {
-		return !registerdUsers.contains(this);
-	}
-
-	public boolean login(LinkedList registerdUsers) {
-		return registerdUsers.contains(this);
-	}
 }
