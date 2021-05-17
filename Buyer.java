@@ -1,19 +1,18 @@
 import java.util.*;
 
-public class Buyer implements User {
+public class Buyer extends User {
 
 	public Buyer(String name, String password, String email) {
-		this.name = name;
-		this.password = password;
-		this.email = email;
+		super(name,password,email);
 	}
 
 	public void buy(ProductsList products) {
-		Product selectedProduct = this.selectProduct(ProductsList products);
+		Product selectedProduct = this.selectProduct(products);
 		int quantity = selectQuantity();
 		String address = selectAddress();
-		if(!Agree()) { return; }
-		Confirm();
+		if(Agree()) {
+			while(!Confirm(selectedProduct,quantity,address));
+		}
 	}
 
 	/*private Product selectProduct(ProductsList products) {
@@ -41,15 +40,17 @@ public class Buyer implements User {
 
 	private boolean Agree() {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("\nDo you agree on the terms and conditions of this product? y/n\n");
-		if (sc.nextLine() == "y") { return true; }
+		System.out.println("\nDo you agree on the terms and conditions of this product? yes/no\n");
+		String input = sc.nextLine();
+		if (input.equals("yes")) { return true; }
 		else { return false; }
 	}
 
 	private boolean Confirm(Product product, int quantity, String address) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("\nDo you Confirm the following provided information? y/n\n Product Name: " + product.getName() + "\nQuantity: " + quantity + "\nAddress: " + address + "\n");
-		if (sc.nextLine() == "y") { System.out.println("You have sucessfully bought your desired product.\n"); return true; }
+		System.out.println("\nDo you Confirm the following provided information? yes/no\n Product Name: " + product.getName() + "\nQuantity: " + quantity + "\nAddress: " + address + "\n");
+		String input = sc.nextLine();
+		if (input.equals("yes")) { System.out.println("You have sucessfully bought your desired product.\n"); return true; }
 		else { return false; }		
 	}
 }

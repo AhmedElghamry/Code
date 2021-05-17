@@ -1,30 +1,28 @@
 import java.util.*;
 
-public class StoreOwner implements User {
+public class StoreOwner extends User {
 	
 	private List storesList;
 	
 	public StoreOwner(String name, String password, String email) {
-		this.name = name;
-		this.password = password;
-		this.email = email;
-		this.storesList = new LinkedList<Store>;
+		super(name,password,email);
+		this.storesList = new LinkedList<Store>();
 	}
 
 	public Store addStore() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter the name of the store: ");
-		String name = scanner.nextLine();
+		String name = sc.nextLine();
 		System.out.println("Enter the location of the store: ");
-		String location = scanner.nextLine();
+		String location = sc.nextLine();
 		System.out.println("Enter the type of the store: ");
-		String type = scanner.nextLine();
+		String type = sc.nextLine();
 		Store store = new Store(name,location,type,this);
 		storesList.add(store);
 		return store;
 	}
 
-	public void addProduct(ProductList products) {
+	public void addProduct(ProductsList products) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\nEnter your desired store name: ");
 		String name = sc.nextLine();
@@ -41,7 +39,7 @@ public class StoreOwner implements User {
 			Store s = (Store) i.next();
 			if (s.getName().equals(name)) {
 				product.addToStore(s,quantity,price);
-				s.addProduct(product)
+				s.addProduct(product);
 				return;
 			}
 		}
@@ -49,7 +47,7 @@ public class StoreOwner implements User {
 
 	}
 
-	public Product getStore(String name) {
+	public Store getStore(String name) {
 		for (Iterator i = storesList.iterator(); i.hasNext(); ) {
 			Store store = (Store) i.next();
 			if (store.getName().equals(name)) {
@@ -61,10 +59,5 @@ public class StoreOwner implements User {
 
 	public List getStoreList() {
 		return storesList;
-	}
-
-	public void setStoreList(StoreList storesList) {
-		this.storelist = storeList;
-	}
-	
+	}	
 }

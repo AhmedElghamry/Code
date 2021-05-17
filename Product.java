@@ -12,8 +12,8 @@ public class Product {
 		this.priceMin = priceMin;
 		this.priceMax = priceMax;
 		this.store = null;
-		this.quantity = null;
-		this.price = null;
+		this.quantity = 0;
+		this.price = 0;
 	}
 
 	public void addToStore(Store store, int quantity, double price) {
@@ -35,23 +35,23 @@ public class Product {
 		return category;
 	}
 	
-	public void setName(String category) {
+	public void setCategory(String category) {
 		this.category=category;
 	}
 		
-	public int getPriceMin() {
+	public double getPriceMin() {
 		return priceMin;
 	}	
 	
-	public void setPriceMin(String priceMin) {
+	public void setPriceMin(double priceMin) {
 		this.priceMin=priceMin;
 	}
 	
-	public int getPriceMax() {
+	public double getPriceMax() {
 		return priceMax;
 	}
 	
-	public void setPriceMax(String priceMax) {
+	public void setPriceMax(double priceMax) {
 		this.priceMax=priceMax;
 	}
 	

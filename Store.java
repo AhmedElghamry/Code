@@ -12,8 +12,8 @@ public class Store {
 		this.storeOwner = storeOwner;
 		this.products = new ProductsList();
 	}
-	public void addproduct(Product product) {
-		products.add(product);
+	public void addProduct(Product product) {
+		products.addProduct(product);
 	}
 	
 	
@@ -42,9 +42,9 @@ public class Store {
 		this.storeOwner=storeOwner;
 	}
 	public ProductsList getProductsList() {
-		return prodcutsList;
+		return products;
 	}
-	public void setProductsList(){
-		this.ProductsList=products;
-
+	public void setProductsList(ProductsList products){
+		this.products=products;
+	}
 }
